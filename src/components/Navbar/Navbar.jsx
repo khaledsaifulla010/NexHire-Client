@@ -37,14 +37,10 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] border-2 w-36 p-2 shadow font-bold text-center text-base"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
+              <Link to={'/login'}>Login</Link>
+              <Link to={'/register'}>Register</Link>
             </ul>
           </div>
         </div>
