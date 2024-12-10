@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import Lottie from "lottie-react";
-import registerLottie from "../../../../public/registerLottie.json";
+import Lottie from "lottie-react";
+import registerLottie from "../../../public/lottieFiles/registerLottie.json";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,9 +18,6 @@ const Register = () => {
 
   return (
     <div className="font-3">
-      <Helmet>
-        <title>GameLoom || Register</title>
-      </Helmet>
       <div className="w-[1200px] ml-28 rounded-xl mt-12">
         <h1
           style={{ animationDuration: "4s" }}
