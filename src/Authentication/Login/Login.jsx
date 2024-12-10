@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Lottie from "lottie-react";
-import loginGIF from "../../../../public/loginLottie.json";
+import loginLottie from "../../../public/lottieFiles/loginLottie.json";
 
 // import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ const Login = () => {
         </h1>
         <div className="flex items-center justify-between">
           <div>
-            <Lottie className="w-[600px]" animationData={loginGIF}></Lottie>
+            <Lottie className="w-[600px]" animationData={loginLottie}></Lottie>
           </div>
 
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl">
@@ -74,11 +74,13 @@ const Login = () => {
               </div>
             </form>
             <div className="ml-8 -mt-4 flex items-center gap-2 p-2">
-              <h1 className="font-bold text-slate-600 text-base">
+              <h1 className="font-bold text-slate-500 text-base">
                 Don't have any account?
               </h1>
               <Link to={"/register"}>
-                <h1 className="font-bold text-green-600 text-base">Register</h1>
+                <h1 className="font-bold text-indigo-900 text-base">
+                  Register
+                </h1>
               </Link>
             </div>
             <div className="divider px-9">OR</div>
