@@ -3,6 +3,7 @@ import AuthContext from "../AuthContext/AuthContext";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 
@@ -15,6 +16,13 @@ const AuthProvider = ({ children }) => {
   const registerUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // LOGIN WITH EMAIL & PASSWORD //
+
+  const loginUser = (email, password) => {
+    setUser(true);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Observer Current User //
@@ -35,6 +43,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     registerUser,
+    loginUser,
   };
 
   return (

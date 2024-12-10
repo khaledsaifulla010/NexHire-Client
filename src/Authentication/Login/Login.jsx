@@ -1,15 +1,34 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import loginLottie from "../../../public/lottieFiles/loginLottie.json";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 // import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { loginUser } = useContext(AuthContext);
+
+  //SIGN IN WITH EMAIL & PASSWORD //
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="font-3">
@@ -27,7 +46,7 @@ const Login = () => {
           </div>
 
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleSignIn}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold text-xl">Email</span>
