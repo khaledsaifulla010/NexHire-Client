@@ -29,9 +29,6 @@ const Register = () => {
         "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!",
         { position: "top-center" }
       );
-      alert(
-        "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!"
-      );
       return;
     }
 
