@@ -4,6 +4,8 @@ import Lottie from "lottie-react";
 import registerLottie from "../../../public/lottieFiles/registerLottie.json";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,9 +38,11 @@ const Register = () => {
 
     registerUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        toast.success("Register Successfully!", { position: "top-right" });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        toast.error("Something Went Wrong!", { position: "top-right" });
+      });
   };
 
   return (
