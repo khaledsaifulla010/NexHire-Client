@@ -24,10 +24,10 @@ const Register = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     if (!passwordRegex.test(password)) {
-      //   toast.error(
-      //     "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!",
-      //     { position: "top-center" }
-      //   );
+      toast.error(
+        "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!",
+        { position: "top-center" }
+      );
       alert(
         "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!"
       );
