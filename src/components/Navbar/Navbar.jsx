@@ -6,6 +6,7 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
+          {/* Logo & Name */}
           <div>
             <Link to={"/"} className="flex items-center gap-2">
               <img className="w-14" src={logo} alt="" />
@@ -16,6 +17,8 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
+        {/* All Routes Link */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal flex items-center gap-8 font-bold text-base">
             <NavLink to={"/"}>Home</NavLink>
@@ -25,8 +28,24 @@ const Navbar = () => {
             <NavLink to={"/myJobPost"}>My JobPost</NavLink>
           </ul>
         </div>
+        {/* Dropdown */}
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
+            <div tabIndex={0} role="button" className="btn m-1">
+              Click
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
