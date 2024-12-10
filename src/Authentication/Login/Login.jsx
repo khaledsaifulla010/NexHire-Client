@@ -18,10 +18,10 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        toast.success("Login Successfully!", { position: "top-right" });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Something Went Wrong!", { position: "top-right" });
       });
   };
 
