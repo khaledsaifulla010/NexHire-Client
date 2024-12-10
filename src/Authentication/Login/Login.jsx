@@ -11,7 +11,19 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleSignIn } = useContext(AuthContext);
+
+  //SIGN IN WITH GOOGLE //
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   //SIGN IN WITH EMAIL & PASSWORD //
 
@@ -103,7 +115,10 @@ const Login = () => {
               </Link>
             </div>
             <div className="divider px-9">OR</div>
-            <button className="border p-2 rounded-xl w-[530px] flex items-center gap-2 ml-8 mb-8 mt-2 text-lg shadow-md font-bold transition duration-500 ease-in-out transform hover:scale-105 active:scale-95">
+            <button
+              onClick={handleGoogleSignIn}
+              className="border p-2 rounded-xl w-[530px] flex items-center gap-2 ml-8 mb-8 mt-2 text-lg shadow-md font-bold transition duration-500 ease-in-out transform hover:scale-105 active:scale-95"
+            >
               <FcGoogle className="ml-40 text-2xl mt-1"></FcGoogle>
               Login with Google
             </button>
