@@ -6,8 +6,8 @@ import Lottie from "lottie-react";
 import loginLottie from "../../../public/lottieFiles/loginLottie.json";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
-// import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,10 +23,10 @@ const Login = () => {
 
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        toast.success("Login Successfully!", { position: "top-right" });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Something Went Wrong!", { position: "top-right" });
       });
   };
 
