@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
 import registerLottie from "../../../public/lottieFiles/registerLottie.json";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { registerUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -29,6 +31,14 @@ const Register = () => {
       );
       return;
     }
+
+    // REGISTER WITH EMAIL & PASSWORD
+
+    registerUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
