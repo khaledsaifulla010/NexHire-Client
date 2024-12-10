@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,10 +39,22 @@ const Register = () => {
 
     registerUser(email, password)
       .then((result) => {
-        toast.success("Register Successfully!", { position: "top-right" });
+        const user = result.user;
+
+        // Update Profile
+        const profile = {
+          displayName: name,
+          photoURL: photo_URL,
+        };
+        return updateProfile(user, profile);
+      })
+      .then(() => {
+        toast.success("Register Successfully!", {
+          position: "top-center",
+        });
       })
       .catch((error) => {
-        toast.error("Something Went Wrong!", { position: "top-right" });
+        toast.error("Something Went Wrong!", { position: "top-center" });
       });
   };
 
