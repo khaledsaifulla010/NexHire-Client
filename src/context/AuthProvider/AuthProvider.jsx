@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 
@@ -25,6 +26,15 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // SIGNOUT USER //
+
+
+  const signOutUser =()=>{
+    setLoading(true)
+    return signOut(auth)
+
+  }
+
   // Observer Current User //
 
   useEffect(() => {
@@ -44,6 +54,7 @@ const AuthProvider = ({ children }) => {
     loading,
     registerUser,
     loginUser,
+    signOutUser,
   };
 
   return (

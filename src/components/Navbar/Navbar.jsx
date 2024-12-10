@@ -5,7 +5,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
+  const handleSignOut = () => {
+    signOutUser().then(() => {
+      console.log("signOut");
+    });
+  };
 
   return (
     <div>
@@ -55,6 +60,7 @@ const Navbar = () => {
             >
               <Link to={"/login"}>Login</Link>
               <Link to={"/register"}>Register</Link>
+              {user ? <button onClick={handleSignOut}>SignOut</button> : ""}
             </ul>
           </div>
         </div>
