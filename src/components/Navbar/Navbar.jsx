@@ -2,7 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/assets/images/logo.jpg";
 import "./Navbar.css";
 import { FaUserCircle } from "react-icons/fa";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext/AuthContext";
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -32,15 +36,25 @@ const Navbar = () => {
         {/* Dropdown */}
         <div className="navbar-end">
           <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
-            <div tabIndex={0} role="button" className="text-4xl">
-              <FaUserCircle />
+            <div tabIndex={0} role="button">
+              {user && user?.photoURL ? (
+                <img
+                  className="w-16 h-16 border border-dotted border-slate-500 rounded-full p-1"
+                  src={user?.photoURL}
+                />
+              ) : (
+                <h1 className="text-4xl">
+                  {" "}
+                  <FaUserCircle />
+                </h1>
+              )}
             </div>
             <ul
               tabIndex={0}
               className="dropdown-content menu bg-base-100 rounded-box z-[1] border-2 w-36 p-2 shadow font-bold text-center text-base"
             >
-              <Link to={'/login'}>Login</Link>
-              <Link to={'/register'}>Register</Link>
+              <Link to={"/login"}>Login</Link>
+              <Link to={"/register"}>Register</Link>
             </ul>
           </div>
         </div>
