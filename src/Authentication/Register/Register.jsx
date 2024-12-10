@@ -14,6 +14,21 @@ const Register = () => {
     const email = e.target.email.value;
     const photo_URL = e.target.photo_URL.value;
     const password = e.target.password.value;
+    console.log(name, email, photo_URL, password);
+    // Password Validations //
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      //   toast.error(
+      //     "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!",
+      //     { position: "top-center" }
+      //   );
+      alert(
+        "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!"
+      );
+      return;
+    }
   };
 
   return (
@@ -21,7 +36,7 @@ const Register = () => {
       <div className="w-[1200px] ml-28 rounded-xl mt-12">
         <h1
           style={{ animationDuration: "4s" }}
-          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-green-600 -mb-6 p-8 ml-[500px] animate__animated
+          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-900 to-indigo-950 -mb-6 p-8 ml-[500px] animate__animated
          animate__backInDown"
         >
           Please Register
@@ -37,7 +52,7 @@ const Register = () => {
 
           {/* Registration Card */}
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl rounded-lg">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleRegister}>
               {/* Name Field */}
               <div className="form-control">
                 <label className="label">
@@ -112,7 +127,7 @@ const Register = () => {
               </div>
               {/* Submit Button */}
               <div className="form-control mt-6">
-                <button className="border p-2 w-full rounded-xl text-green-500 bg-green-200 border-green-300 font-bold text-lg shadow-md transition duration-500 ease-in-out transform hover:scale-105 active:scale-95">
+                <button className="border p-2 w-full rounded-xl text-indigo-950 bg-indigo-100 border-indigo-200 font-bold text-lg shadow-md transition duration-500 ease-in-out transform hover:scale-105 active:scale-95">
                   Register
                 </button>
               </div>
