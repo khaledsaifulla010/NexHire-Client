@@ -2,10 +2,11 @@ import Lottie from "lottie-react";
 import { motion } from "motion/react";
 import bannerLottie from "../../../public/lottieFiles/bannerLottie.json";
 import { Typewriter } from "react-simple-typewriter";
+import { FaBriefcase } from "react-icons/fa6";
 const Banner = () => {
   return (
-    <div className="mb-72 mt-12 bg-purple-50">
-      <div className="hero h-[480px]">
+    <div className="mt-12 mb-72 bg-purple-50">
+      <div className="hero h-[600px]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex items-center ">
             <div className="w-[60%] font-extrabold text-5xl">
@@ -28,7 +29,33 @@ const Banner = () => {
                 Connect with top employers, <br /> explore exciting
                 opportunities, and take the next step in your career journey.
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              <div>
+                {/* Industry */}
+                <div className="relative">
+                  <FaBriefcase className="text-xl absolute mt-7 ml-4" />
+                  <select className="select select-bordered w-[220px] text-center text-base text-slate-600 pl-4">
+                    <option
+                      selected
+                      className="text-center text-lg text-slate-500"
+                    >
+                      Industry
+                    </option>
+                    <option className="text-center text-lg text-slate-500">
+                      Software
+                    </option>
+                    <option className="text-center text-lg text-slate-500">
+                      Development
+                    </option>
+                    <option className="text-center text-lg text-slate-500">
+                      Finance
+                    </option>
+                    <option className="text-center text-lg text-slate-500">
+                      Management
+                    </option>
+                  </select>
+                </div>
+                {/* Location */}
+              </div>
             </div>
             <motion.div
               className="w-[40%]"
