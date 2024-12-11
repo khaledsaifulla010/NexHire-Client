@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
@@ -12,6 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loginUser, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state || "/";
+  const navigate = useNavigate();
 
   //SIGN IN WITH GOOGLE //
 
@@ -19,6 +22,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         toast.success("Login Successfully!", { position: "top-right" });
+        navigate(from);
       })
       .catch((error) => {
         toast.error("Something Went Wrong!", { position: "top-right" });
@@ -36,6 +40,7 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         toast.success("Login Successfully!", { position: "top-right" });
+        navigate(from);
       })
       .catch((error) => {
         toast.error("Something Went Wrong!", { position: "top-right" });
