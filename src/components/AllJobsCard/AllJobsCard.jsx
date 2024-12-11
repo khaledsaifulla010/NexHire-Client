@@ -1,5 +1,7 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { BsBriefcaseFill } from "react-icons/bs";
+import { CiBadgeDollar } from "react-icons/ci";
+import { FaPaperPlane } from "react-icons/fa";
 const AllJobsCard = ({ job }) => {
   const {
     title,
@@ -48,12 +50,12 @@ const AllJobsCard = ({ job }) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="text-lg font-bold text-purple-800">
-          {salaryRange?.min} - {salaryRange?.max}
+        <span className="text-lg font-bold text-purple-800 flex items-center gap-1">
+          <CiBadgeDollar /> {salaryRange?.min} - {salaryRange?.max}
           {salaryRange?.currency.toUpperCase()}
         </span>
         <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
-          Apply Now
+          Apply Now <FaPaperPlane />
         </button>
       </div>
     </div>
