@@ -1,3 +1,4 @@
+import { FaLocationDot } from "react-icons/fa6";
 const AllJobsCard = ({ job }) => {
   const {
     title,
@@ -19,7 +20,9 @@ const AllJobsCard = ({ job }) => {
         />
         <div>
           <h2 className="font-bold text-xl text-gray-800">{company}</h2>
-          <p className="text-sm text-gray-500">{location}</p>
+          <p className="text-sm text-gray-500 flex items-center gap-1">
+            <FaLocationDot className="mt-1" /> {location}
+          </p>
         </div>
       </div>
 
