@@ -12,8 +12,8 @@ const Location = () => {
 
   return (
     <div className="relative">
-      <FaLocationDot className="text-xl absolute mt-7 ml-4 text-purple-800" />
-      <select className="select select-bordered w-[220px] text-center text-base text-slate-600 pl-4">
+      <FaLocationDot className="text-xl absolute mt-4 ml-4 text-purple-800" />
+      <select className="select w-[220px] text-center text-base text-slate-600">
         <option selected className="text-center text-lg text-slate-500">
           Select Country
         </option>
