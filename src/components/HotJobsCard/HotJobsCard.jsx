@@ -2,7 +2,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FaPaperPlane } from "react-icons/fa";
-const AllJobsCard = ({ job }) => {
+const HotJobsCard = ({ job }) => {
   const {
     title,
     company,
@@ -62,4 +62,4 @@ const AllJobsCard = ({ job }) => {
   );
 };
 
-export default AllJobsCard;
+export default HotJobsCard;

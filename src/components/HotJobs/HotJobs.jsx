@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import AllJobsCard from "../AllJobsCard/AllJobsCard";
+import HotJobsCard from "../HotJobsCard/HotJobsCard";
 
-const AllJobs = () => {
+const HotJobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/jobs").then((data) => setJobs(data.data));
+    axios
+      .get("http://localhost:5000/hotJobs")
+      .then((data) => setJobs(data.data));
   }, []);
 
   return (
@@ -20,11 +22,11 @@ const AllJobs = () => {
       </div>
       <div className="grid grid-cols-3 gap-y-12 mt-16 justify-center ml-8">
         {jobs.map((job) => (
-          <AllJobsCard key={job._id} job={job}></AllJobsCard>
+          <HotJobsCard key={job._id} job={job}></HotJobsCard>
         ))}
       </div>
     </div>
   );
 };
 
-export default AllJobs;
+export default HotJobs;
