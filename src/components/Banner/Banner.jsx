@@ -8,7 +8,7 @@ import Location from "../Location/Location";
 import { FaSearch } from "react-icons/fa";
 const Banner = () => {
   return (
-    <div className="mt-12 mb-72 bg-purple-50">
+    <div className="mt-12 bg-purple-50">
       <div className="hero h-[650px]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex items-center ">
