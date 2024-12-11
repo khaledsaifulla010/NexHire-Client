@@ -2,8 +2,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FaPaperPlane } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const HotJobsCard = ({ job }) => {
   const {
+    _id,
     title,
     company,
     jobType,
@@ -54,9 +56,11 @@ const HotJobsCard = ({ job }) => {
           <CiBadgeDollar /> {salaryRange?.min} - {salaryRange?.max}
           {salaryRange?.currency.toUpperCase()}
         </span>
-        <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
-          Apply Now <FaPaperPlane />
-        </button>
+        <Link to={`/hotJobs/${_id}`}>
+          <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
+            Apply Now <FaPaperPlane />
+          </button>
+        </Link>
       </div>
     </div>
   );
