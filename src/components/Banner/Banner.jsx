@@ -1,4 +1,5 @@
 import Lottie from "lottie-react";
+import { motion } from "motion/react";
 import bannerLottie from "../../../public/lottieFiles/bannerLottie.json";
 const Banner = () => {
   return (
@@ -18,12 +19,16 @@ const Banner = () => {
               </p>
               <button className="btn btn-primary">Get Started</button>
             </div>
-            <div className="w-[40%]">
+            <motion.div
+              className="w-[40%]"
+              animate={{ y: [0, 30, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            >
               <Lottie
-                className="w-[600px]"
+                className="w-[600px] "
                 animationData={bannerLottie}
               ></Lottie>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
