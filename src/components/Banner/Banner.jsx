@@ -45,7 +45,7 @@ const Banner = () => {
             </motion.div>
           </div>
         </div>
-        <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4 mt-[600px] w-[900px] justify-between border-base-200 shadow-xl">
+        <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4 mt-[650px] w-[900px] justify-between border-base-200 shadow-xl absolute">
           {/* Industry */}
           <div className="relative">
             <FaBriefcase className="text-xl absolute mt-4 ml-4 text-purple-800" />
@@ -85,6 +85,15 @@ const Banner = () => {
           <button className="p-2 border rounded-xl font-semibold text-lg flex items-center gap-1 bg-purple-900 text-white border-purple-950 shadow-2xl">
             <FaSearch className="mt-1" /> Search
           </button>
+        </div>
+        <div className="mt-[820px] absolute">
+          <h1 className="font-bold text-slate-500 text-base ">
+            Popular Searches :
+            <span className="underline font-normal ml-1">Designer</span> ,
+            <span className="underline ml-1 font-normal">Web Developer</span> ,
+            <span className="underline ml-1 font-normal">Engineer</span> ,
+            <span className="underline ml-1 font-normal">Digital Marketer</span>
+          </h1>
         </div>
       </div>
     </div>
