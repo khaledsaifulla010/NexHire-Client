@@ -7,6 +7,15 @@ const BrowsCategory = () => {
           Discover your perfect job with 800+ new opportunities daily.
         </p>
       </div>
+      <div>
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h1>Software</h1>
+            <p>1856 Jobs Available</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
