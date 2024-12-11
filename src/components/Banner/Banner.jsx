@@ -5,6 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { FaBriefcase } from "react-icons/fa6";
 import { TbGridDots } from "react-icons/tb";
 import Location from "../Location/Location";
+import { FaSearch } from "react-icons/fa";
 const Banner = () => {
   return (
     <div className="mt-12 mb-72 bg-purple-50">
@@ -44,7 +45,7 @@ const Banner = () => {
             </motion.div>
           </div>
         </div>
-        <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4 mt-[600px] w-[800px] justify-between border-base-200 shadow-xl">
+        <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4 mt-[600px] w-[900px] justify-between border-base-200 shadow-xl">
           {/* Industry */}
           <div className="relative">
             <FaBriefcase className="text-xl absolute mt-4 ml-4 text-purple-800" />
@@ -79,6 +80,11 @@ const Banner = () => {
               placeholder="Keyword"
             />
           </div>
+          {/* Button */}
+
+          <button className="p-2 border rounded-xl font-semibold text-lg flex items-center gap-1 bg-purple-900 text-white border-purple-950 shadow-2xl">
+            <FaSearch className="mt-1" /> Search
+          </button>
         </div>
       </div>
     </div>
