@@ -18,7 +18,7 @@ const AllJobs = () => {
           Quickly Discover and Connect with Top Talent Effortlessly.
         </p>
       </div>
-      <div>
+      <div className="grid grid-cols-3 gap-y-12 mt-16 justify-center ml-8">
         {jobs.map((job) => (
           <AllJobsCard key={job._id} job={job}></AllJobsCard>
         ))}
