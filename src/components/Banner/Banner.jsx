@@ -2,7 +2,8 @@ import Lottie from "lottie-react";
 import { motion } from "motion/react";
 import bannerLottie from "../../../public/lottieFiles/bannerLottie.json";
 import { Typewriter } from "react-simple-typewriter";
-import { FaBriefcase } from "react-icons/fa6";
+import { FaBriefcase, FaLocationDot } from "react-icons/fa6";
+import Location from "../Location/Location";
 const Banner = () => {
   return (
     <div className="mt-12 mb-72 bg-purple-50">
@@ -32,7 +33,7 @@ const Banner = () => {
               <div>
                 {/* Industry */}
                 <div className="relative">
-                  <FaBriefcase className="text-xl absolute mt-7 ml-4" />
+                  <FaBriefcase className="text-xl absolute mt-7 ml-4 text-purple-800" />
                   <select className="select select-bordered w-[220px] text-center text-base text-slate-600 pl-4">
                     <option
                       selected
@@ -55,6 +56,7 @@ const Banner = () => {
                   </select>
                 </div>
                 {/* Location */}
+                <Location></Location>
               </div>
             </div>
             <motion.div
