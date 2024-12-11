@@ -8,20 +8,25 @@ const Banner = () => {
       <div className="hero h-[480px]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex items-center ">
-            <div className="w-[60%] text-purple-900 font-extrabold text-5xl">
-              <Typewriter
-                words={["Your Next Opportunity Awaits"]}
-                loop={0}
-                cursor
-                cursorStyle="!"
-                typeSpeed={100}
-                deleteSpeed={200}
-                delaySpeed={2000}
-              />
-              <p className="py-6 text-justify text-xl font-semibold text-slate-700">
-                Discover your dream job with NexHire. Connect with top
-                employers, explore <br /> exciting opportunities, and take the
-                next step in your career journey.
+            <div className="w-[60%] font-extrabold text-5xl">
+              <motion.div animate={{ color: ["#6B21A8", "#4C1D95"] }}>
+                <Typewriter
+                  words={["Your Next Opportunity Awaits"]}
+                  loop={0}
+                  cursor
+                  cursorStyle="!"
+                  typeSpeed={200}
+                  deleteSpeed={100}
+                  delaySpeed={2000}
+                />
+              </motion.div>
+
+              <p className="py-6 text-justify text-xl font-semibold text-slate-700 mr-[120px]">
+                Discover your dream job with
+                <span className="text-purple-950 font-black"> Nex</span>
+                <span className="text-purple-700 font-black">Hire</span>.
+                Connect with top employers, <br /> explore exciting
+                opportunities, and take the next step in your career journey.
               </p>
               <button className="btn btn-primary">Get Started</button>
             </div>
