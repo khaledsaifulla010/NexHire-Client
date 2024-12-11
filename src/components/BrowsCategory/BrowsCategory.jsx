@@ -13,7 +13,7 @@ import icon10 from "../../../public/assets/icons/icon10.png";
 
 const BrowsCategory = () => {
   return (
-    <div className="mt-64 mb-72">
+    <div className="mt-64">
       <div>
         <h1 className="font-black text-4xl text-center">Browse by Category</h1>
         <p className="text-center mt-2 text-lg font-semibold text-slate-500">
