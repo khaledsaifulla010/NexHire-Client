@@ -32,7 +32,7 @@ const AllJobsCard = ({ job }) => {
         {requirements?.map((requirement, index) => (
           <span
             key={index}
-            className="badge badge-outline border-blue-500 text-blue-500"
+            className="badge badge-outline border-purple-200 bg-purple-50 text-purple-700 font-semibold text-center"
           >
             {requirement}
           </span>
@@ -40,11 +40,13 @@ const AllJobsCard = ({ job }) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="text-lg font-bold text-blue-600">
-          {salaryRange?.min} - {salaryRange?.max}{" "}
+        <span className="text-lg font-bold text-purple-800">
+          {salaryRange?.min} - {salaryRange?.max}
           {salaryRange?.currency.toUpperCase()}
         </span>
-        <button className="btn btn-primary btn-sm">Apply Now</button>
+        <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
+          Apply Now
+        </button>
       </div>
     </div>
   );
