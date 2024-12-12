@@ -36,30 +36,30 @@ const ViewApplication = () => {
       ) : (
         <div className="overflow-x-auto mt-8">
           <div className="rounded-lg shadow-lg border border-gray-300">
-            <table className="table w-full border-collapse">
+            <table className="table w-full border-collapse text-center">
               <thead className="bg-gray-700 text-white text-lg font-extrabold">
                 <tr>
-                  <th className="text-center py-3 px-4">SL/No.</th>
-                  <th className="text-center py-3 px-4">Email</th>
-                  <th className="text-center py-3 px-4">LinkedIn</th>
-                  <th className="text-center py-3 px-4">GitHub</th>
-                  <th className="text-center py-3 px-4">Resume</th>
-                  <th className="text-center py-3 px-4">Status</th>
-                  <th className="text-center py-3 px-4">Update Status</th>
+                  <th className="py-3 px-4">SL/No.</th>
+                  <th className="py-3 px-4">Email</th>
+                  <th className="py-3 px-4">LinkedIn</th>
+                  <th className="py-3 px-4">GitHub</th>
+                  <th className="py-3 px-4">Resume</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">Update Status</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
                 {applicants.map((applicant, index) => (
                   <tr key={applicant._id} className="hover:bg-gray-100">
-                    <td className="text-center py-3 px-4 font-bold text-green-600 text-base">
+                    <td className="py-3 px-4 font-bold text-green-600 text-base">
                       {index + 1}
                     </td>
-                    <td className="text-center py-3 px-4 text-base text-purple-500 font-bold">
+                    <td className="py-3 px-4 text-base text-purple-500 font-bold">
                       <a href={`mailto:${applicant.applicant_email}`}>
                         {applicant.applicant_email}
                       </a>
                     </td>
-                    <td className="text-center py-3 px-4 text-blue-500 font-bold text-base">
+                    <td className="py-3 px-4 text-blue-500 font-bold text-base">
                       <a
                         href={applicant.linkedIn}
                         target="_blank"
@@ -69,7 +69,7 @@ const ViewApplication = () => {
                         <FaLinkedin className="text-2xl" />
                       </a>
                     </td>
-                    <td className="text-center py-3 px-4 font-bold text-base">
+                    <td className="py-3 px-4 font-bold text-base">
                       <a
                         href={applicant.github}
                         target="_blank"
@@ -79,7 +79,7 @@ const ViewApplication = () => {
                         <FaGithub className="text-2xl" />
                       </a>
                     </td>
-                    <td className="text-center py-3 px-4 text-indigo-500 font-bold text-base">
+                    <td className="py-3 px-4 text-indigo-500 font-bold text-base">
                       <a
                         href={applicant.resume}
                         target="_blank"
@@ -89,18 +89,35 @@ const ViewApplication = () => {
                         <HiDocument className="text-2xl" />
                       </a>
                     </td>
-                    <td>
+                    <td className="py-3 px-4">
                       <select
                         onChange={(e) => handleStatusUpdate(e, applicant._id)}
                         defaultValue={applicant.status || "Change Status"}
-                        className="select select-bordered select-xs w-full max-w-xs"
+                        className="select select-bordered select-xs w-full max-w-xs text-center"
                       >
                         <option disabled>Change Status</option>
                         <option>Under Review</option>
-                        <option>Set Review</option>
+                        <option>Pending</option>
                         <option>Hired</option>
                         <option>Rejected</option>
                       </select>
+                    </td>
+                    <td className="py-3 px-4">
+                      <h1
+                        className={`text-base font-bold ${
+                          applicant.status === "Under Review"
+                            ? "text-orange-500"
+                            : applicant.status === "Pending"
+                            ? "text-yellow-500"
+                            : applicant.status === "Hired"
+                            ? "text-green-500"
+                            : applicant.status === "Rejected"
+                            ? "text-red-500"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {applicant.status}
+                      </h1>
                     </td>
                   </tr>
                 ))}
