@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const MyJobPost = () => {
   const { user } = useAuth();
@@ -32,6 +33,8 @@ const MyJobPost = () => {
                     <th className="text-center py-3 px-4">
                       Application Deadline
                     </th>
+                    <th className="text-center py-3 px-4">Application Count</th>
+                    <th className="text-center py-3 px-4">View Application</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
@@ -59,6 +62,16 @@ const MyJobPost = () => {
                       </td>
                       <td className="text-center py-3 px-4 text-indigo-500 font-bold text-base">
                         {job.applicationDeadline}
+                      </td>
+                      <td className="text-center py-3 px-4 text-indigo-500 font-bold text-base">
+                        {job.applicationCount}
+                      </td>
+                      <td>
+                        <Link to={`/viewApplication/${job._id}`}>
+                          <button className="btn btn-link">
+                            View Application
+                          </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
