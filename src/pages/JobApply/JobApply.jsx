@@ -1,8 +1,45 @@
+import { useParams } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import { toast } from "react-toastify";
+
 const JobApply = () => {
+  const { id } = useParams();
+  console.log(id);
+  const { user } = useAuth;
+
+  const handleJobApplication = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const linkedIn = form.linkedIn.value;
+    const github = form.github.value;
+    const resume = form.resume.value;
+
+    const jobApplication = {
+      job_id: id,
+      applicant_email: user?.email,
+      linkedIn,
+      github,
+      resume,
+    };
+
+    axios
+      .post("http://localhost:5000/job_application", jobApplication)
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Application Submit Successfully", {
+            position: "top-left",
+          });
+        }
+      });
+  };
+
   return (
     <div className="mt-24 mb-72">
       <div className="card bg-base-200 border max-w-[800px]  mx-auto">
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleJobApplication}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">LinkedIn URL</span>
