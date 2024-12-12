@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPaperPlane } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { TbListDetails } from "react-icons/tb";
 import { CiBadgeDollar } from "react-icons/ci";
 import { DiRequirejs } from "react-icons/di";
@@ -10,6 +10,7 @@ const HotJobDetails = () => {
   const jobDetails = useLoaderData();
 
   const {
+    _id,
     title,
     location,
     jobType,
@@ -118,9 +119,11 @@ const HotJobDetails = () => {
           </p>
         </div>
 
-        <button className="btn w-full py-3 bg-gradient-to-r from-purple-800 to-purple-900 text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-          Apply Now <FaPaperPlane />
-        </button>
+        <Link to={`/jobApply/${_id}`}>
+          <button className="btn w-full py-3 bg-gradient-to-r from-purple-800 to-purple-900 text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+            Apply Now <FaPaperPlane />
+          </button>
+        </Link>
       </div>
     </div>
   );
