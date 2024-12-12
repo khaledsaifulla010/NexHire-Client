@@ -1,9 +1,26 @@
+import axios from "axios";
+
 const AddJobs = () => {
+  const handleAddJob = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const initialData = Object.fromEntries(formData.entries());
+    const { salaryMin, salaryMax, currency, ...newJob } = initialData;
+    newJob.slaryRange = { salaryMin, salaryMax, currency };
+    newJob.requirements = newJob.requirements.split("\n");
+    newJob.responsibilities = newJob.responsibilities.split("\n");
+
+    axios
+      .post("http://localhost:5000/jobs", newJob)
+      .then((data) => console.log(data.data));
+  };
+
   return (
     <div className="mt-24 mb-72">
       <h1>AddJobs</h1>
       <div className="card bg-base-100 max-w-[800px] mx-auto border shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleAddJob}>
           <h2 className="text-2xl font-bold text-center mb-4">Post a Job</h2>
 
           {/* Job Title */}
@@ -129,31 +146,32 @@ const AddJobs = () => {
           {/* Requirements */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Requirements (comma-separated)</span>
+              <span className="label-text">
+                Requirements (Put Each Requirements in a New Line)
+              </span>
             </label>
-            <input
-              type="text"
+            <textarea
               name="requirements"
-              placeholder="Enter required skills or qualifications"
-              className="input input-bordered"
+              placeholder="Put Each Requirements in a New Line"
+              className="textarea textarea-bordered"
               required
-            />
+            ></textarea>
           </div>
 
           {/* Responsibilities */}
           <div className="form-control">
             <label className="label">
               <span className="label-text">
-                Responsibilities (comma-separated)
+                Responsibilities (Put Key Responsibilities in a New Line)
               </span>
             </label>
-            <input
-              type="text"
+
+            <textarea
               name="responsibilities"
-              placeholder="Enter key responsibilities"
-              className="input input-bordered"
+              placeholder="Put key responsibilities in a New Line"
+              className="textarea textarea-bordered"
               required
-            />
+            ></textarea>
           </div>
 
           {/* HR Contact */}
