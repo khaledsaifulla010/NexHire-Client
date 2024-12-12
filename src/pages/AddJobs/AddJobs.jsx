@@ -14,7 +14,7 @@ const AddJobs = () => {
     newJob.requirements = newJob.requirements.split("\n");
     newJob.responsibilities = newJob.responsibilities.split("\n");
 
-    axios.post("http://localhost:5000/jobs", newJob).then((data) => {
+    axios.post("http://localhost:5000/allJobs", newJob).then((data) => {
       if (data.data.insertedId) {
         toast.success("Job Post Successfully", {
           position: "top-left",
