@@ -52,11 +52,11 @@ const AllJobsCard = ({ job }) => {
           <CiBadgeDollar /> {salaryRange?.salaryMin} - {salaryRange?.salaryMax}
           {salaryRange?.currency.toUpperCase()}
         </span>
-        {/* <Link to={`/hotJobs/${_id}`}>
+        <Link to={`/allJobs/${_id}`}>
           <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
             Apply Now <FaPaperPlane />
           </button>
-        </Link> */}
+        </Link>
       </div>
     </div>
   );
