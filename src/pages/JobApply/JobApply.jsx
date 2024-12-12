@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const JobApply = () => {
   const { id } = useParams();
   console.log(id);
-  const { user } = useAuth;
+  const { user } = useAuth();
 
   const handleJobApplication = (e) => {
     e.preventDefault();
@@ -19,14 +19,14 @@ const JobApply = () => {
 
     const jobApplication = {
       job_id: id,
-      applicant_email: user?.email,
+      applicant_email: user.email,
       linkedIn,
       github,
       resume,
     };
 
     axios
-      .post("http://localhost:5000/job_application", jobApplication)
+      .post("http://localhost:5000/job_applications", jobApplication)
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Application Submit Successfully", {
