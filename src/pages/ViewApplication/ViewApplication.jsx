@@ -1,10 +1,23 @@
 import { useLoaderData } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDocument } from "react-icons/hi2";
+import axios from "axios";
 
 const ViewApplication = () => {
   const applicants = useLoaderData();
-  console.log(applicants);
+
+  const handleStatusUpdate = (e, id) => {
+    console.log(e.target.value, id);
+    const data = {
+      status: e.target.value,
+    };
+
+    axios
+      .patch(`http://localhost:5000/job_application/${id}`, data)
+      .then((data) => {
+        console.log(data.data);
+      });
+  };
 
   return (
     <div className="mt-24 mb-72">
@@ -27,11 +40,13 @@ const ViewApplication = () => {
                   <th className="text-center py-3 px-4">LinkedIn</th>
                   <th className="text-center py-3 px-4">GitHub</th>
                   <th className="text-center py-3 px-4">Resume</th>
+                  <th className="text-center py-3 px-4">Status</th>
+                  <th className="text-center py-3 px-4">Update Status</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
                 {applicants.map((applicant, index) => (
-                  <tr key={applicant.id} className="hover:bg-gray-100">
+                  <tr key={applicant._id} className="hover:bg-gray-100">
                     <td className="text-center py-3 px-4 font-bold text-green-600 text-base">
                       {index + 1}
                     </td>
@@ -69,6 +84,19 @@ const ViewApplication = () => {
                       >
                         <HiDocument className="text-2xl" />
                       </a>
+                    </td>
+                    <td>
+                      <select
+                        onChange={(e) => handleStatusUpdate(e, applicant._id)}
+                        defaultValue={applicant.status || "Change Status"}
+                        className="select select-bordered select-xs w-full max-w-xs"
+                      >
+                        <option disabled>Change Status</option>
+                        <option>Under Review</option>
+                        <option>Set Review</option>
+                        <option>Hired</option>
+                        <option>Rejected</option>
+                      </select>
                     </td>
                   </tr>
                 ))}
