@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -7,6 +7,7 @@ const JobApply = () => {
   const { id } = useParams();
   console.log(id);
   const { user } = useAuth();
+  const redirect = useNavigate();
 
   const handleJobApplication = (e) => {
     e.preventDefault();
@@ -32,6 +33,7 @@ const JobApply = () => {
           toast.success("Application Submit Successfully", {
             position: "top-left",
           });
+          redirect("/myApplications");
         }
       });
   };
