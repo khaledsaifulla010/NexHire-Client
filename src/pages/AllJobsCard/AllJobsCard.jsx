@@ -3,7 +3,8 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FaPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const HotJobsCard = ({ job }) => {
+
+const AllJobsCard = ({ job }) => {
   const {
     _id,
     title,
@@ -18,11 +19,7 @@ const HotJobsCard = ({ job }) => {
   return (
     <div className="card  bg-white shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 duration-300 ease-in-out p-4 border w-[450px] h-[350px] ">
       <div className="flex items-center space-x-4 mb-4">
-        <img
-          src={company_logo}
-          alt={`${company} logo`}
-          className="w-12 h-12 rounded-full"
-        />
+        <img src={company_logo} className="w-12 h-12 rounded-full" />
         <div>
           <h2 className="font-bold text-xl text-gray-800">{company}</h2>
           <p className="text-sm text-gray-500 flex items-center gap-1">
@@ -52,17 +49,17 @@ const HotJobsCard = ({ job }) => {
 
       <div className="flex items-center justify-between">
         <span className="text-lg font-bold text-purple-800 flex items-center gap-1">
-          <CiBadgeDollar /> {salaryRange?.min} - {salaryRange?.max}
+          <CiBadgeDollar /> {salaryRange?.salaryMin} - {salaryRange?.salaryMax}
           {salaryRange?.currency.toUpperCase()}
         </span>
-        <Link to={`/hotJobs/${_id}`}>
+        {/* <Link to={`/hotJobs/${_id}`}>
           <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
             Apply Now <FaPaperPlane />
           </button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
 };
 
-export default HotJobsCard;
+export default AllJobsCard;
