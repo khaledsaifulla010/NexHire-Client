@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AddJobs = () => {
   const handleAddJob = (e) => {
     e.preventDefault();
@@ -11,9 +12,13 @@ const AddJobs = () => {
     newJob.requirements = newJob.requirements.split("\n");
     newJob.responsibilities = newJob.responsibilities.split("\n");
 
-    axios
-      .post("http://localhost:5000/jobs", newJob)
-      .then((data) => console.log(data.data));
+    axios.post("http://localhost:5000/jobs", newJob).then((data) => {
+      if (data.data.insertedId) {
+        toast.success("Job Post Successfully", {
+          position: "top-left",
+        });
+      }
+    });
   };
 
   return (
