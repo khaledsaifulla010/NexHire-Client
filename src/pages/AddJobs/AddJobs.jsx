@@ -1,7 +1,9 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuth from "../../hooks/useAuth";
 const AddJobs = () => {
+  const { user } = useAuth();
   const handleAddJob = (e) => {
     e.preventDefault();
 
@@ -187,7 +189,8 @@ const AddJobs = () => {
             <input
               type="email"
               name="hr_email"
-              placeholder="Enter HR email"
+              defaultValue={user?.email}
+              readOnly
               className="input input-bordered"
               required
             />
@@ -199,7 +202,8 @@ const AddJobs = () => {
             <input
               type="text"
               name="hr_name"
-              placeholder="Enter HR name"
+              defaultValue={user?.displayName}
+              readOnly
               className="input input-bordered"
               required
             />
