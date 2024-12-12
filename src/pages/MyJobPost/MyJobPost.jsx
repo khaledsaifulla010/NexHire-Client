@@ -17,7 +17,7 @@ const MyJobPost = () => {
   return (
     <div className="mt-24 mb-72">
       <h1 className="text-5xl text-center font-bold">
-        My Total Job Post : {jobs.length}{" "}
+        My Total Job Post : {jobs.length}
       </h1>
       <div>
         {jobs.length > 0 ? (
