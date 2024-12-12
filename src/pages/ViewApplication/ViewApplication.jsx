@@ -2,12 +2,12 @@ import { useLoaderData } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDocument } from "react-icons/hi2";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ViewApplication = () => {
   const applicants = useLoaderData();
 
   const handleStatusUpdate = (e, id) => {
-    console.log(e.target.value, id);
     const data = {
       status: e.target.value,
     };
@@ -15,7 +15,11 @@ const ViewApplication = () => {
     axios
       .patch(`http://localhost:5000/job_application/${id}`, data)
       .then((data) => {
-        console.log(data.data);
+        if (data.data.modifiedCount) {
+          toast.success("Application Status Updated", {
+            position: "top-right",
+          });
+        }
       });
   };
 
