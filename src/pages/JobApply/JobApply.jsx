@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 const JobApply = () => {
   const { id } = useParams();
   console.log(id);
@@ -28,7 +28,7 @@ const JobApply = () => {
     axios
       .post("http://localhost:5000/job_application", jobApplication)
       .then((data) => {
-        if (data.insertedId) {
+        if (data.data.insertedId) {
           toast.success("Application Submit Successfully", {
             position: "top-left",
           });
