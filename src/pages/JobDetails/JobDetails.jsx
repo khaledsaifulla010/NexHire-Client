@@ -118,7 +118,7 @@ const JobDetails = () => {
           </p>
         </div>
 
-        <Link to={`/jobApply/${_id}`}>
+        <Link to={`/newJobApply/${_id}`}>
           <button className="btn w-full py-3 bg-gradient-to-r from-purple-800 to-purple-900 text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
             Apply Now <FaPaperPlane />
           </button>

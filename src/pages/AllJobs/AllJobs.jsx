@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AllJobsCard from "../AllJobsCard/AllJobsCard";
 
+
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
 

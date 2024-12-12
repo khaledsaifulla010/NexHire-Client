@@ -2,34 +2,47 @@ import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-const JobApply = () => {
+import { useEffect, useState } from "react";
+
+const NewJobApply = () => {
+  const [jobs, setJobs] = useState([]);
   const { id } = useParams();
   const { user } = useAuth();
   const redirect = useNavigate();
 
-  const handleJobApplication = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/allJobs")
+      .then((response) => setJobs(response.data));
+  }, []);
 
+  const selectedJob = jobs.find((job) => job._id === id);
+
+  const handleNewJobApplication = (e) => {
+    e.preventDefault();
     const form = e.target;
 
     const linkedIn = form.linkedIn.value;
     const github = form.github.value;
     const resume = form.resume.value;
 
-    const jobApplication = {
+    // Prepare the application data
+    const newJobApplication = {
       job_id: id,
       applicant_email: user.email,
       linkedIn,
       github,
       resume,
+      title: selectedJob?.title,
+      company: selectedJob?.company,
+      company_logo: selectedJob?.company_logo,
     };
 
     axios
-      .post("http://localhost:5000/job_applications", jobApplication)
+      .post("http://localhost:5000/job_applications", newJobApplication)
       .then((data) => {
         if (data.data.insertedId) {
-          toast.success("Application Submit Successfully", {
+          toast.success("Application Submitted Successfully", {
             position: "top-left",
           });
           redirect("/myApplications");
@@ -40,7 +53,7 @@ const JobApply = () => {
   return (
     <div className="mt-24 mb-72">
       <div className="card bg-base-200 border max-w-[800px]  mx-auto">
-        <form className="card-body" onSubmit={handleJobApplication}>
+        <form className="card-body" onSubmit={handleNewJobApplication}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">LinkedIn URL</span>
@@ -86,4 +99,4 @@ const JobApply = () => {
   );
 };
 
-export default JobApply;
+export default NewJobApply;

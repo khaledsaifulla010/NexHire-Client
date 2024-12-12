@@ -11,6 +11,7 @@ import AddJobs from "../pages/AddJobs/AddJobs";
 import MyJobPost from "../pages/MyJobPost/MyJobPost";
 import AllJobs from "../pages/AllJobs/AllJobs";
 import JobDetails from "../pages/JobDetails/JobDetails";
+import NewJobApply from "../pages/NewJobApply/NewJobApply";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allJobs/${params.id}`),
       },
+      {
+        path:'/newJobApply/:id',
+        element:<NewJobApply></NewJobApply>
+      }
     ],
   },
 ]);

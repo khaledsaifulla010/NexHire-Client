@@ -1,11 +1,11 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
-import { h1 } from "motion/react-client";
 
 const MyApplications = () => {
   const { user } = useAuth();
   const [jobs, setJobs] = useState([]);
+  console.log(jobs);
 
   useEffect(() => {
     axios
