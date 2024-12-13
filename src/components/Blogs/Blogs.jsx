@@ -12,14 +12,18 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div className="mt-36 mb-24">
-      <h1>Blogs</h1>
+    <div className="mt-24 mb-24">
+      <h1 className="font-black text-4xl text-center text-purple-950">
+        News and Blogs
+      </h1>
+      <p className="text-center mt-2 text-lg font-semibold text-slate-500">
+        Stay Informed with The Freshest Insights, Updates, and Expert Advice.
+      </p>
 
-      <div className="grid grid-cols-3 ">
-        {
-            blogs.map(blog=> <BlogsCard key={blog._id} blog={blog}></BlogsCard>)
-
-        }
+      <div className="grid grid-cols-3 gap-y-10 mt-16">
+        {blogs.map((blog) => (
+          <BlogsCard key={blog._id} blog={blog}></BlogsCard>
+        ))}
       </div>
     </div>
   );
