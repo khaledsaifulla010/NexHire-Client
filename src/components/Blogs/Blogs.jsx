@@ -33,7 +33,7 @@ const Blogs = () => {
       </div>
       <button
         onClick={handleLoadMorePost}
-        className="mt-12 border p-2 w-44 rounded-xl ml-[720px] bg-purple-950 text-white font-bold text-lg flex items-center gap-1"
+        className="mt-12 border p-2 w-44 rounded-xl ml-[650px] bg-purple-950 text-white font-bold text-lg flex items-center gap-1"
       >
         {showAll ? (
           <>
