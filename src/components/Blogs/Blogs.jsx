@@ -18,7 +18,7 @@ const Blogs = () => {
   };
 
   return (
-    <div className="mt-24 mb-24">
+    <div className="mt-24">
       <h1 className="font-black text-4xl text-center text-purple-950">
         News and Blogs
       </h1>

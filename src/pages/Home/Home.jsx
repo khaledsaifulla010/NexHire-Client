@@ -4,6 +4,7 @@ import BrowsCategory from "../../components/BrowsCategory/BrowsCategory";
 import CountsUp from "../../components/CountsUp/CountsUp";
 import HiringPoster from "../../components/HiringPoster/HiringPoster";
 import HotJobs from "../../components/HotJobs/HotJobs";
+import NewLetter from "../../components/NewLetter/NewLetter";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <HotJobs></HotJobs>
       <CountsUp></CountsUp>
       <Blogs></Blogs>
+      <NewLetter></NewLetter>
     </div>
   );
 };
