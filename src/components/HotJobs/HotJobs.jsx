@@ -15,7 +15,9 @@ const HotJobs = () => {
   return (
     <div className="mt-24 ">
       <div>
-        <h1 className="font-black text-4xl text-center">Jobs of the day</h1>
+        <h1 className="font-black text-4xl text-center text-purple-950">
+          Jobs of the day
+        </h1>
         <p className="text-center mt-2 text-lg font-semibold text-slate-500">
           Quickly Discover and Connect with Top Talent Effortlessly.
         </p>

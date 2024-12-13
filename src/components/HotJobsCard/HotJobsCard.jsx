@@ -24,7 +24,7 @@ const HotJobsCard = ({ job }) => {
           className="w-12 h-12 rounded-full"
         />
         <div>
-          <h2 className="font-bold text-xl text-gray-800">{company}</h2>
+          <h2 className="font-bold text-xl text-purple-950">{company}</h2>
           <p className="text-sm text-gray-500 flex items-center gap-1">
             <FaLocationDot className="mt-1" /> {location}
           </p>

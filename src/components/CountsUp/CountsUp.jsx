@@ -6,7 +6,7 @@ const CountsUp = () => {
   const [counterState, setCounterState] = useState(false);
 
   return (
-    <div className="mt-36 mb-24 w-[1300px] ml-20">
+    <div className="mt-36 w-[1300px] ml-20">
       <ScrollTrigger
         onEnter={() => setCounterState(true)}
         onExit={() => setCounterState(false)}
@@ -15,7 +15,7 @@ const CountsUp = () => {
         <div className="flex items-center justify-between">
           <div className="w-[300px] h-[250px] rounded-xl border p-4 space-y-4">
             <h1 className="text-6xl font-bold text-center text-purple-800">
-              {counterState && <CountUp start={0} end={100} duration={3} />}K
+              {counterState && <CountUp start={0} end={500} duration={3} />}M+
             </h1>
             <h2 className="text-center text-3xl font-bold text-purple-950">
               Jobs Posted
@@ -28,7 +28,7 @@ const CountsUp = () => {
           {/* div 2 */}
           <div className="w-[300px] h-[250px] border rounded-xl p-4 space-y-4">
             <h1 className="text-6xl font-bold text-center text-purple-800">
-              {counterState && <CountUp start={0} end={10} duration={2.5} />}K
+              {counterState && <CountUp start={0} end={10} duration={2.5} />}K+
             </h1>
             <h2 className="text-center text-3xl font-bold text-purple-950">
               Active Employers
@@ -41,7 +41,7 @@ const CountsUp = () => {
           {/* div 3 */}
           <div className="w-[300px] h-[250px] border rounded-xl p-4 space-y-4">
             <h1 className="text-6xl font-bold text-center text-purple-800">
-              {counterState && <CountUp start={0} end={500} duration={2.5} />}M
+              {counterState && <CountUp start={0} end={100} duration={2.5} />}M+
             </h1>
             <h2 className="text-center text-3xl font-bold text-purple-950">
               Registered Users

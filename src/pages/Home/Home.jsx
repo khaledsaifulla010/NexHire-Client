@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner/Banner";
+import Blogs from "../../components/Blogs/Blogs";
 import BrowsCategory from "../../components/BrowsCategory/BrowsCategory";
 import CountsUp from "../../components/CountsUp/CountsUp";
 import HiringPoster from "../../components/HiringPoster/HiringPoster";
@@ -12,6 +13,7 @@ const Home = () => {
       <HiringPoster></HiringPoster>
       <HotJobs></HotJobs>
       <CountsUp></CountsUp>
+      <Blogs></Blogs>
     </div>
   );
 };
