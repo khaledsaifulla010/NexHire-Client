@@ -1,7 +1,7 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { BsBriefcaseFill } from "react-icons/bs";
 import { CiBadgeDollar } from "react-icons/ci";
-import { FaPaperPlane } from "react-icons/fa";
+import { MdOutlineVerified } from "react-icons/md";
 import { Link } from "react-router-dom";
 const HotJobsCard = ({ job }) => {
   const {
@@ -57,7 +57,7 @@ const HotJobsCard = ({ job }) => {
         </span>
         <Link to={`/hotJobs/${_id}`}>
           <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
-            Apply Now <FaPaperPlane />
+            <MdOutlineVerified className="mt-1 text-lg" /> Apply Now
           </button>
         </Link>
       </div>
