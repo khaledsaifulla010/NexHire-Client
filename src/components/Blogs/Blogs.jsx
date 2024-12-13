@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BlogsCard from "../BlogsCard/BlogsCard";
-
+import { GiMeepleCircle } from "react-icons/gi";
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -25,6 +25,10 @@ const Blogs = () => {
           <BlogsCard key={blog._id} blog={blog}></BlogsCard>
         ))}
       </div>
+      <button className="mt-12 border p-2 w-44 rounded-xl ml-[720px] bg-purple-950 text-white font-bold text-lg flex items-center gap-1">
+        <GiMeepleCircle className="mt-0.5" />
+        Load More Post
+      </button>
     </div>
   );
 };
