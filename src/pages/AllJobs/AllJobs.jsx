@@ -109,17 +109,17 @@ const AllJobs = () => {
           </div>
         </div>
 
-        <div className="w-[1100px] mt-1">
+        <div className="w-[1100px] -mt-1">
           <div>
             <div className="flex items-center justify-between">
               {/* div1 */}
-              <div className="mr-[700px]">
-                <h1 className="font-medium text-slate-500 text-lg">
-                  Showing {jobs.length} of {jobs.length} jobs
+              <div className="mr-[650px]">
+                <h1 className="font-medium text-slate-500 text-xl">
+                  Showing {showCount} of {jobs.length} jobs
                 </h1>
               </div>
               {/* div2 */}
-              <div className="relative border rounded-xl w-[135px] flex items-center justify-between p-2">
+              <div className="relative border rounded-xl w-[135px]  flex items-center justify-between p-2 mr-4">
                 <h1 className="text-purple-800 font-semibold text-base">
                   Show:
                 </h1>
@@ -144,7 +144,7 @@ const AllJobs = () => {
               </div>
 
               {/* div3 */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-4">
                 <button
                   onClick={toggleGrid}
                   className={`p-2 rounded-xl ${
