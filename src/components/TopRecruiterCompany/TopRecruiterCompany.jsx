@@ -13,7 +13,7 @@ const TopRecruiterCompany = () => {
   return (
     <div className="mt-24">
       <h1 className="font-black text-4xl text-center text-purple-950">
-        Top Recruiters {recruters.length}
+        Top Recruiters
       </h1>
       <p className="text-center mt-2 text-lg font-semibold text-slate-500">
         Shape Your Future. Careers, Gigs, Internships.
