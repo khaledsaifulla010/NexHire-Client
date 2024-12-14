@@ -15,13 +15,15 @@ const BrowsCategory = () => {
   return (
     <div className="mt-64">
       <div>
-        <h1 className="font-black text-4xl text-center text-purple-950">Browse by Category</h1>
+        <h1 className="font-black text-4xl text-center text-purple-950">
+          Browse by Category
+        </h1>
         <p className="text-center mt-2 text-lg font-semibold text-slate-500">
           Discover your perfect job with 800+ new opportunities daily.
         </p>
       </div>
 
-      <div className="mt-12">
+      <div className="mt-16 px-8">
         <Marquee speed={20} gradient={false}>
           <div className="flex gap-12">
             {[
