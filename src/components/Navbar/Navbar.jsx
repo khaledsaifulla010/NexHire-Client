@@ -62,9 +62,23 @@ const Navbar = () => {
               tabIndex={0}
               className="dropdown-content menu bg-base-100 rounded-box z-[1] border-2 w-36 p-2 shadow font-bold text-center text-base"
             >
-              <Link to={"/login"}>Login</Link>
-              <Link to={"/register"}>Register</Link>
-              {user ? <button onClick={handleSignOut}>SignOut</button> : ""}
+              <button className="border px-2 py-1 rounded-xl font-bold text-blue-600 bg-blue-100 border-blue-200 ">
+                <Link to={"/myProfile"}>My Profile</Link>
+              </button>
+              <button className="border px-2 py-1 rounded-xl font-bold text-purple-950 bg-purple-100 border-purple-200 mt-2">
+                <Link to={"/login"}>Login</Link>
+              </button>
+
+              {user ? (
+                <button
+                  className="border px-2 py-1 rounded-xl font-bold text-red-600 bg-red-100 border-read-200 mt-2"
+                  onClick={handleSignOut}
+                >
+                  SignOut
+                </button>
+              ) : (
+                ""
+              )}
             </ul>
           </div>
         </div>

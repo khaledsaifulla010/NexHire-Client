@@ -106,6 +106,9 @@ const AllJobs = () => {
               </div>
               <div className="divider"></div>
             </div>
+            <div className="w-full border h-[1190px]">
+
+            </div>
           </div>
         </div>
 
