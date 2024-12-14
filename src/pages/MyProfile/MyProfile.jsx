@@ -54,6 +54,58 @@ const MyProfile = () => {
             </ol>
           </div>
         </div>
+        {/* div3 */}
+
+        <div className="mt-12">
+          <div className=" rounded-3xl w-[700px] h-[400px] p-4 bg-white">
+            <h1 className="font-bold text-3xl ml-2 ">Contact</h1>
+            <div className="mt-6 flex items-center justify-between text-lg font-medium">
+              <h1 className="text-purple-600">Email : </h1>
+              <h1>ishak123@gmail.com</h1>
+            </div>
+            <div className="divider -mt-1"></div>
+            <div className="mt-6 flex items-center justify-between text-lg font-medium">
+              <h1 className="text-purple-600">Phone Number : </h1>
+              <h1>017XXXXXXX</h1>
+            </div>
+            <div className="divider -mt-1"></div>
+            <div className="mt-6 flex items-center justify-between text-lg font-medium">
+              <h1 className="text-purple-600">LinkedIn : </h1>
+              <a
+                className="text-blue-400"
+                href="http://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                http://linkedin.com/
+              </a>
+            </div>
+            <div className="divider -mt-1"></div>
+            <div className="mt-6 flex items-center justify-between text-lg font-medium">
+              <h1 className="text-purple-600">Github : </h1>
+              <a
+                className="text-blue-400"
+                href="http://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                http://github.com/
+              </a>
+            </div>
+            <div className="divider -mt-1"></div>
+            <div className="mt-6 flex items-center justify-between text-lg font-medium">
+              <h1 className="text-purple-600">Portfolio : </h1>
+              <a
+                className="text-blue-400 "
+                href="http://portfolio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                http://portfolio.com/
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
