@@ -7,15 +7,22 @@ import { FaBriefcase } from "react-icons/fa6";
 import { TbGridDots } from "react-icons/tb";
 import { FaSearch } from "react-icons/fa";
 import Location from "../../components/Location/Location";
-
+import { BsFillGridFill } from "react-icons/bs";
+import { FaThList } from "react-icons/fa";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
+  const [showGrid, setShowGrid] = useState(false);
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/allJobs")
       .then((data) => setJobs(data.data));
   }, []);
+
+  const toggleGrid = () => {
+    setShowGrid(true);
+  };
+
   return (
     <div className="mt-16 mb-72">
       <div className="w-full h-[400px] border border-purple-100 bg-purple-50 rounded-xl">
@@ -74,11 +81,22 @@ const AllJobs = () => {
           <img className="w-[250px] h-[250px]  rounded-xl" src={jobs2} />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-y-12 mt-16 justify-center ml-8">
-        {jobs.map((job) => (
-          <AllJobsCard key={job._id} job={job}></AllJobsCard>
-        ))}
+
+      <div className="flex items-center gap-2 mt-12">
+        <button onClick={toggleGrid}>
+          <BsFillGridFill />
+        </button>
+        <button>
+          <FaThList />
+        </button>
       </div>
+      {showGrid && (
+        <div className="grid grid-cols-3 gap-y-12 gap-4 mt-16 justify-center ml-8">
+          {jobs.map((job) => (
+            <AllJobsCard key={job._id} job={job}></AllJobsCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
