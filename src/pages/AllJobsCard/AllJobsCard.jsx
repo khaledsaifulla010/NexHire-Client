@@ -3,8 +3,7 @@ import { BsBriefcaseFill } from "react-icons/bs";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FaPaperPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-const AllJobsCard = ({ job }) => {
+const AllJobsCard = ({ job, isGridView }) => {
   const {
     _id,
     title,
@@ -16,8 +15,13 @@ const AllJobsCard = ({ job }) => {
     location,
     salaryRange,
   } = job;
+
   return (
-    <div className="card  bg-white shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 duration-300 ease-in-out p-4 border w-[450px] h-[350px] ">
+    <div
+      className={`card bg-white shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 duration-300 ease-in-out p-4 border ${
+        isGridView ? "w-[450px] h-[350px]" : "w-full h-auto"
+      }`}
+    >
       <div className="flex items-center space-x-4 mb-4">
         <img src={company_logo} className="w-12 h-12 rounded-full" />
         <div>
@@ -32,7 +36,11 @@ const AllJobsCard = ({ job }) => {
       <p className="text-sm text-gray-500 font-semibold flex items-center gap-2 ">
         <BsBriefcaseFill className="mt-1" /> {jobType}
       </p>
-      <p className="text-base text-gray-600 mb-4 line-clamp-3 text-justify">
+      <p
+        className={`text-base text-gray-600 mb-4 ${
+          isGridView ? "line-clamp-none text-justify" : "line-clamp-3"
+        }`}
+      >
         {description}
       </p>
 
@@ -53,7 +61,7 @@ const AllJobsCard = ({ job }) => {
           {salaryRange?.currency.toUpperCase()}
         </span>
         <Link to={`/allJobs/${_id}`}>
-          <button className="btn  bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
+          <button className="btn bg-blue-100 border-blue-200 text-blue-800 btn-sm font-bold">
             Apply Now <FaPaperPlane />
           </button>
         </Link>

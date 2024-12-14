@@ -9,9 +9,10 @@ import { FaSearch } from "react-icons/fa";
 import Location from "../../components/Location/Location";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaThList } from "react-icons/fa";
+
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
-  const [showGrid, setShowGrid] = useState(false);
+  const [isGridView, setIsGridView] = useState(true);
 
   useEffect(() => {
     axios
@@ -20,7 +21,11 @@ const AllJobs = () => {
   }, []);
 
   const toggleGrid = () => {
-    setShowGrid(true);
+    setIsGridView(true);
+  };
+
+  const toggleList = () => {
+    setIsGridView(false);
   };
 
   return (
@@ -36,7 +41,7 @@ const AllJobs = () => {
           Discover your dream job with NexHire.
         </p>
         <div className="flex items-center justify-between mt-6">
-          <img className="w-[250px] h-[250px]   rounded-xl" src={jobs1} />
+          <img className="w-[250px] h-[250px] rounded-xl" src={jobs1} />
           <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4  w-[900px] justify-between border-base-200 shadow-xl absolute ml-[275px]">
             {/* Industry */}
             <div className="relative">
@@ -67,13 +72,12 @@ const AllJobs = () => {
             <div className="relative">
               <TbGridDots className="text-xl absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-800 " />
               <input
-                className="text-lg  rounded-md pl-12 pr-4 py-2 w-full "
+                className="text-lg rounded-md pl-12 pr-4 py-2 w-full"
                 type="text"
                 placeholder="Keyword"
               />
             </div>
             {/* Button */}
-
             <button className="p-2 border rounded-xl font-semibold text-lg flex items-center gap-1 bg-purple-900 text-white border-purple-950 shadow-2xl mr-4 w-28 ">
               <FaSearch className="mt-1 ml-2" /> Search
             </button>
@@ -82,21 +86,42 @@ const AllJobs = () => {
         </div>
       </div>
 
+      {/* Toggle Buttons */}
       <div className="flex items-center gap-2 mt-12">
-        <button onClick={toggleGrid}>
+        <button
+          onClick={toggleGrid}
+          className={`p-2 rounded-xl ${
+            isGridView ? "bg-purple-900 text-white" : "bg-gray-200 text-black"
+          }`}
+        >
           <BsFillGridFill />
         </button>
-        <button>
+        <button
+          onClick={toggleList}
+          className={`p-2 rounded-xl ${
+            !isGridView ? "bg-purple-900 text-white" : "bg-gray-200 text-black"
+          }`}
+        >
           <FaThList />
         </button>
       </div>
-      {showGrid && (
-        <div className="grid grid-cols-3 gap-y-12 gap-4 mt-16 justify-center ml-8">
-          {jobs.map((job) => (
-            <AllJobsCard key={job._id} job={job}></AllJobsCard>
-          ))}
-        </div>
-      )}
+
+      {/* Jobs Display */}
+      <div
+        className={
+          isGridView
+            ? "grid grid-cols-3 gap-y-12 gap-4 mt-16"
+            : "grid grid-cols-1 gap-y-12 gap-4 mt-16 "
+        }
+      >
+        {jobs.map((job) => (
+          <AllJobsCard
+            key={job._id}
+            job={job}
+            isGridView={isGridView}
+          ></AllJobsCard>
+        ))}
+      </div>
     </div>
   );
 };
