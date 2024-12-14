@@ -19,7 +19,7 @@ const AllJobs = () => {
   return (
     <div className="mt-16 mb-72">
       <div className="w-full h-[400px] border border-purple-100 bg-purple-50 rounded-xl">
-        <h1 className="text-center font-bold text-purple-950 text-4xl py-10">
+        <h1 className="text-center font-bold text-purple-950 text-5xl py-10">
           <span className="text-purple-700 font-extrabold">
             {jobs.length} Jobs
           </span>{" "}
@@ -28,7 +28,7 @@ const AllJobs = () => {
         <p className="text-center text-xl font-bold text-slate-400 -mt-8">
           Discover your dream job with NexHire.
         </p>
-        <div className="flex items-center justify-between mt-8">
+        <div className="flex items-center justify-between mt-6">
           <img className="w-[250px] h-[250px]   rounded-xl" src={jobs1} />
           <div className="flex h-[100px] border rounded-xl items-center p-2 bg-white gap-4  w-[900px] justify-between border-base-200 shadow-xl absolute ml-[275px]">
             {/* Industry */}
@@ -67,8 +67,8 @@ const AllJobs = () => {
             </div>
             {/* Button */}
 
-            <button className="p-2 border rounded-xl font-semibold text-lg flex items-center gap-1 bg-purple-900 text-white border-purple-950 shadow-2xl">
-              <FaSearch className="mt-1" /> Search
+            <button className="p-2 border rounded-xl font-semibold text-lg flex items-center gap-1 bg-purple-900 text-white border-purple-950 shadow-2xl mr-4 w-28 ">
+              <FaSearch className="mt-1 ml-2" /> Search
             </button>
           </div>
           <img className="w-[250px] h-[250px]  rounded-xl" src={jobs2} />
