@@ -25,7 +25,7 @@ const Banner = () => {
                 />
               </motion.div>
 
-              <p className="py-6 text-justify text-xl font-semibold text-slate-700 mr-[120px]">
+              <p className="py-6 text-justify text-xl font-semibold text-slate-500 mr-[120px]">
                 Discover your dream job with
                 <span className="text-purple-950 font-black"> Nex</span>
                 <span className="text-purple-700 font-black">Hire</span>.
@@ -39,7 +39,7 @@ const Banner = () => {
               transition={{ duration: 4, repeat: Infinity }}
             >
               <Lottie
-                className="w-[600px] "
+                className="w-[500px] "
                 animationData={bannerLottie}
               ></Lottie>
             </motion.div>
