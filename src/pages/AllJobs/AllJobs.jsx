@@ -86,24 +86,46 @@ const AllJobs = () => {
         </div>
       </div>
 
-      {/* Toggle Buttons */}
-      <div className="flex items-center gap-2 mt-12">
-        <button
-          onClick={toggleGrid}
-          className={`p-2 rounded-xl ${
-            isGridView ? "bg-purple-900 text-white" : "bg-gray-200 text-black"
-          }`}
-        >
-          <BsFillGridFill />
-        </button>
-        <button
-          onClick={toggleList}
-          className={`p-2 rounded-xl ${
-            !isGridView ? "bg-purple-900 text-white" : "bg-gray-200 text-black"
-          }`}
-        >
-          <FaThList />
-        </button>
+      <div className="flex items-center justify-between mt-12">
+        {/* div1 */}
+        <div>
+          <div className="flex items-center gap-8 ">
+            <h1 className="font-bold text-2xl">Advance Filter</h1>
+            <button className="border px-2 mt-1 rounded-xl font-semibold hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-slate-500 text-center py-1">
+              Reset
+            </button>
+          </div>
+          <div className="divider"></div>
+        </div>
+
+        {/* div2 */}
+        <div>
+          {/* div1 */}
+          <div></div>
+          {/* div2 */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleGrid}
+              className={`p-2 rounded-xl ${
+                isGridView
+                  ? "bg-purple-900 text-white"
+                  : "bg-gray-200 text-black"
+              }`}
+            >
+              <BsFillGridFill />
+            </button>
+            <button
+              onClick={toggleList}
+              className={`p-2 rounded-xl ${
+                !isGridView
+                  ? "bg-purple-900 text-white"
+                  : "bg-gray-200 text-black"
+              }`}
+            >
+              <FaThList />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Jobs Display */}
