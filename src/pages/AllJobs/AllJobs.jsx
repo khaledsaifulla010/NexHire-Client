@@ -13,6 +13,7 @@ import { FaThList } from "react-icons/fa";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
+  const [showCount, setShowCount] = useState("All");
 
   useEffect(() => {
     axios
@@ -27,6 +28,12 @@ const AllJobs = () => {
   const toggleList = () => {
     setIsGridView(false);
   };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setShowCount(value === "All" ? "All" : parseInt(value));
+  };
+  const displayedJobs = showCount === "All" ? jobs : jobs.slice(0, showCount);
 
   return (
     <div className="mt-16 mb-72">
@@ -116,15 +123,22 @@ const AllJobs = () => {
                 <h1 className="text-purple-800 font-semibold text-base">
                   Show:
                 </h1>
-                <select className="w-[65px] text-center text-base text-slate-600  bg-transparent border-transparent focus:border-transparent focus:ring-0 outline-none">
+                <select
+                  value={showCount}
+                  onChange={handleChange}
+                  className="w-[65px] text-center text-base text-slate-600  bg-transparent border-transparent focus:border-transparent focus:ring-0 outline-none"
+                >
                   <option className="text-center text-lg text-slate-500">
-                    3
+                    All
                   </option>
                   <option className="text-center text-lg text-slate-500">
-                    5
+                    2
                   </option>
                   <option className="text-center text-lg text-slate-500">
-                    10
+                    4
+                  </option>
+                  <option className="text-center text-lg text-slate-500">
+                    6
                   </option>
                 </select>
               </div>
@@ -163,7 +177,7 @@ const AllJobs = () => {
                 : "grid grid-cols-1 gap-y-12 mt-12 "
             }
           >
-            {jobs.map((job) => (
+            {displayedJobs.map((job) => (
               <AllJobsCard
                 key={job._id}
                 job={job}
