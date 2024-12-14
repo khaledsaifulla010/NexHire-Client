@@ -86,63 +86,74 @@ const AllJobs = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-12">
-        {/* div1 */}
+      <div className="flex justify-between mt-16">
         <div>
-          <div className="flex items-center gap-8 ">
-            <h1 className="font-bold text-2xl">Advance Filter</h1>
-            <button className="border px-2 mt-1 rounded-xl font-semibold hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-slate-500 text-center py-1">
-              Reset
-            </button>
-          </div>
-          <div className="divider"></div>
-        </div>
-
-        {/* div2 */}
-        <div>
-          {/* div1 */}
-          <div></div>
-          {/* div2 */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleGrid}
-              className={`p-2 rounded-xl ${
-                isGridView
-                  ? "bg-purple-900 text-white"
-                  : "bg-gray-200 text-black"
-              }`}
-            >
-              <BsFillGridFill />
-            </button>
-            <button
-              onClick={toggleList}
-              className={`p-2 rounded-xl ${
-                !isGridView
-                  ? "bg-purple-900 text-white"
-                  : "bg-gray-200 text-black"
-              }`}
-            >
-              <FaThList />
-            </button>
+          <div className="w-[300px]">
+            {/* div1 */}
+            <div>
+              <div className="flex items-center justify-between ">
+                <h1 className="font-bold text-2xl">Advance Filter</h1>
+                <button className="border px-2 mt-1 rounded-xl font-semibold hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-slate-500 text-center py-1">
+                  Reset
+                </button>
+              </div>
+              <div className="divider"></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Jobs Display */}
-      <div
-        className={
-          isGridView
-            ? "grid grid-cols-3 gap-y-12 gap-4 mt-16"
-            : "grid grid-cols-1 gap-y-12 gap-4 mt-16 "
-        }
-      >
-        {jobs.map((job) => (
-          <AllJobsCard
-            key={job._id}
-            job={job}
-            isGridView={isGridView}
-          ></AllJobsCard>
-        ))}
+        <div className="w-[1100px] mt-1">
+          <div>
+            <div className="flex items-center">
+              {/* div1 */}
+              <div className="mr-[700px]">
+                <h1 className="font-medium text-slate-500 text-lg">
+                  Showing {jobs.length} of {jobs.length} jobs
+                </h1>
+              </div>
+              {/* div2 */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleGrid}
+                  className={`p-2 rounded-xl ${
+                    isGridView
+                      ? "bg-purple-900 text-white"
+                      : "bg-gray-200 text-black"
+                  }`}
+                >
+                  <BsFillGridFill />
+                </button>
+                <button
+                  onClick={toggleList}
+                  className={`p-2 rounded-xl ${
+                    !isGridView
+                      ? "bg-purple-900 text-white"
+                      : "bg-gray-200 text-black"
+                  }`}
+                >
+                  <FaThList />
+                </button>
+              </div>
+            </div>
+            <div className="divider"></div>
+          </div>
+          {/* Jobs Display */}
+          <div
+            className={
+              isGridView
+                ? "grid grid-cols-2 gap-y-12  mt-12"
+                : "grid grid-cols-1 gap-y-12 mt-12 "
+            }
+          >
+            {jobs.map((job) => (
+              <AllJobsCard
+                key={job._id}
+                job={job}
+                isGridView={isGridView}
+              ></AllJobsCard>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

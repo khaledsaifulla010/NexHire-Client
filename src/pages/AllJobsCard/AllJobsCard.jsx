@@ -19,7 +19,7 @@ const AllJobsCard = ({ job, isGridView }) => {
   return (
     <div
       className={`card bg-white shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 duration-300 ease-in-out p-4 border ${
-        isGridView ? "w-[450px] h-[350px]" : "w-full h-auto"
+        isGridView ? "w-[520px] h-[350px]" : "w-full h-auto"
       }`}
     >
       <div className="flex items-center space-x-4 mb-4">
