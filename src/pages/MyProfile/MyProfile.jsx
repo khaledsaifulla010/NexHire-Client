@@ -33,15 +33,25 @@ const MyProfile = () => {
         </div>
         {/* div2 */}
 
-        <div className="mt-12">
-          <div className=" rounded-xl w-[700px] h-[300px] p-4 bg-white">
-            <h1 className="font-bold text-xl ml-2 ">About Me</h1>
-            <p className="mt-4 font-medium text-slate-500 text-justify px-2">
+        <div className="mt-12 flex items-center justify-around gap-72">
+          <div className=" rounded-3xl w-[700px] h-[300px] p-4 bg-white">
+            <h1 className="font-bold text-3xl ml-2 ">About Me</h1>
+            <p className="mt-4 font-medium text-slate-600 text-justify px-2">
               This appears to be a stylized bookmark icon with red, white, and
               blue stripes. It is often used to represent saving, marking, or
               highlighting something digitally, such as in a reading app or a
               document. If you need further clarification or edits, let me know!
             </p>
+          </div>
+          <div className=" rounded-3xl w-[400px] h-[300px] p-4 bg-white">
+            <h1 className="font-bold text-3xl ml-2 text-center">
+              Area of Expertise
+            </h1>
+            <ol className="list-decimal list-inside mt-8 px-4 font-medium text-xl">
+              <li>Web Design</li>
+              <li>UI/UX Design</li>
+              <li>Problem Solving</li>
+            </ol>
           </div>
         </div>
       </div>
