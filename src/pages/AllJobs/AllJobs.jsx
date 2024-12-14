@@ -112,11 +112,11 @@ const AllJobs = () => {
                 </h1>
               </div>
               {/* div2 */}
-              <div className="relative border rounded-xl w-[135px] flex items-center justify-between px-2 ">
-                <h1 className="text-purple-800 font-semibold text-base ">
-                  Show :
+              <div className="relative border rounded-xl w-[135px] flex items-center justify-between p-2">
+                <h1 className="text-purple-800 font-semibold text-base">
+                  Show:
                 </h1>
-                <select className="select w-[65px] text-center text-base text-slate-600 mt-1">
+                <select className="w-[65px] text-center text-base text-slate-600  bg-transparent border-transparent focus:border-transparent focus:ring-0 outline-none">
                   <option className="text-center text-lg text-slate-500">
                     3
                   </option>
