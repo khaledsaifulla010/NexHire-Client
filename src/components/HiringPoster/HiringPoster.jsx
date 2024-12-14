@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HiringPoster = () => {
   return (
-    <div className="mt-36 mb-36 w-[1100px] border flex items-center p-4 rounded-lg  justify-between ml-44">
+    <div className="mt-36  w-[1100px] border flex items-center p-4 rounded-lg  justify-between ml-44">
       <div>
         <img className="w-[160px]" src={joinUs} />
       </div>
