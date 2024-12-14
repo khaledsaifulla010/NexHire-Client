@@ -5,6 +5,7 @@ import CountsUp from "../../components/CountsUp/CountsUp";
 import HiringPoster from "../../components/HiringPoster/HiringPoster";
 import HotJobs from "../../components/HotJobs/HotJobs";
 import NewLetter from "../../components/NewLetter/NewLetter";
+import TopRecruiterCompany from "../../components/TopRecruiterCompany/TopRecruiterCompany";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <HiringPoster></HiringPoster>
       <HotJobs></HotJobs>
       <CountsUp></CountsUp>
+      <TopRecruiterCompany></TopRecruiterCompany>
       <Blogs></Blogs>
       <NewLetter></NewLetter>
     </div>
