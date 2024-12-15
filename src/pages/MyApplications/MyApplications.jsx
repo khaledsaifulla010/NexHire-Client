@@ -9,7 +9,9 @@ const MyApplications = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/job_application?email=${user.email}`)
+      .get(`http://localhost:5000/job_application?email=${user.email}`, {
+        withCredentials: true,
+      })
       .then((data) => setJobs(data.data));
   }, [user.email]);
 
@@ -32,7 +34,7 @@ const MyApplications = () => {
               </thead>
               <tbody className="text-gray-700">
                 {jobs.map((job, index) => (
-                  <tr key={job.id} className="hover:bg-gray-100">
+                  <tr key={job._id} className="hover:bg-gray-100">
                     <td className="text-center py-3 px-4 font-bold text-green-600 text-base">
                       {index + 1}
                     </td>
