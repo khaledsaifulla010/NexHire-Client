@@ -1,7 +1,8 @@
 import image1 from "../../../public/assets/candidate/candidate1.png";
 import bookmark from "../../../public/assets/images/bookmark.jpg";
 import { IoLocation } from "react-icons/io5";
-
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const MyProfile = () => {
   return (
     <div className="mt-16 px-6 lg:px-20 mb-36">
@@ -25,13 +26,15 @@ const MyProfile = () => {
               <IoLocation className="text-blue-500" /> Dhaka, Bangladesh
             </p>
           </div>
-
-          {/* Bookmark Icon */}
-          <img
-            className="w-[50px] h-[50px] hidden lg:block ml-auto rounded-full shadow-md cursor-pointer"
-            src={bookmark}
-            alt="Bookmark"
-          />
+          {/* Edit profile */}
+          <Link
+            to={"/editMyProfile"}
+            className="text-3xl hidden lg:block ml-auto rounded-full text-green-600"
+          >
+            <button>
+              <FaEdit />
+            </button>
+          </Link>
         </div>
       </div>
 
