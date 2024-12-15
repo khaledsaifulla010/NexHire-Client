@@ -8,6 +8,7 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,6 +41,13 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         toast.success("Login Successfully!", { position: "top-right" });
+
+        // JWT
+        console.log(result.user.email);
+        const user = { email: email };
+        axios.post("http://localhost:5000/jwt", user).then((data) => {
+          console.log(data.data);
+        });
         navigate(from);
       })
       .catch((error) => {
