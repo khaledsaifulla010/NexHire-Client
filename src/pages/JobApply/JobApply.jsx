@@ -26,7 +26,10 @@ const JobApply = () => {
     };
 
     axios
-      .post("http://localhost:5000/job_applications", jobApplication)
+      .post(
+        "https://nex-hire-server.vercel.app/job_applications",
+        jobApplication
+      )
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Application Submit Successfully", {

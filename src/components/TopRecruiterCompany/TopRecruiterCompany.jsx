@@ -6,7 +6,7 @@ const TopRecruiterCompany = () => {
   const [recruters, setRecruiters] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/topRecruiterCompany")
+      .get("https://nex-hire-server.vercel.app/topRecruiterCompany")
       .then((data) => setRecruiters(data.data));
   }, []);
 

@@ -40,7 +40,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/hotJobs/${params.id}`),
+          fetch(`https://nex-hire-server.vercel.app/hotJobs/${params.id}`),
       },
       {
         path: "/jobApply/:id",
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allJobs/${params.id}`),
+          fetch(`https://nex-hire-server.vercel.app/allJobs/${params.id}`),
       },
       {
         path: "/newJobApply/:id",
@@ -96,7 +96,9 @@ const router = createBrowserRouter([
         path: "/viewApplication/:job_id",
         element: <ViewApplication></ViewApplication>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/job_application/${params.job_id}`),
+          fetch(
+            `https://nex-hire-server.vercel.app/job_application/${params.job_id}`
+          ),
       },
       {
         path: "/myProfile",

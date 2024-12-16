@@ -9,9 +9,12 @@ const MyApplications = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/job_application?email=${user.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://nex-hire-server.vercel.app/job_application?email=${user.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((data) => setJobs(data.data));
   }, [user.email]);
 

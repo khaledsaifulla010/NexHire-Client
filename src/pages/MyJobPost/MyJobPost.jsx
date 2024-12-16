@@ -9,7 +9,9 @@ const MyJobPost = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/allJobsOfRecruiter?email=${user.email}`)
+      .get(
+        `https://nex-hire-server.vercel.app/allJobsOfRecruiter?email=${user.email}`
+      )
       .then((data) => setJobs(data.data));
   }, [user.email]);
   console.log(jobs);

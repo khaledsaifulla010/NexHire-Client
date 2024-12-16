@@ -9,7 +9,7 @@ const Blogs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/blogs")
+      .get("https://nex-hire-server.vercel.app/blogs")
       .then((data) => setBlogs(data.data));
   }, []);
 

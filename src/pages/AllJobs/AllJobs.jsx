@@ -17,7 +17,7 @@ const AllJobs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allJobs")
+      .get("https://nex-hire-server.vercel.app/allJobs")
       .then((data) => setJobs(data.data));
   }, []);
 
@@ -106,9 +106,7 @@ const AllJobs = () => {
               </div>
               <div className="divider"></div>
             </div>
-            <div className="w-full border h-[1190px]">
-
-            </div>
+            <div className="w-full border h-[1190px]"></div>
           </div>
         </div>
 

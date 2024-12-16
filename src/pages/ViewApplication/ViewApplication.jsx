@@ -13,7 +13,7 @@ const ViewApplication = () => {
     };
 
     axios
-      .patch(`http://localhost:5000/job_application/${id}`, data)
+      .patch(`https://nex-hire-server.vercel.app/job_application/${id}`, data)
       .then((data) => {
         if (data.data.modifiedCount) {
           toast.success("Application Status Updated", {

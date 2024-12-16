@@ -53,7 +53,9 @@ const AuthProvider = ({ children }) => {
         const user = { email: currentUser.email };
 
         axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .post("https://nex-hire-server.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
           .then((res) => {
             // console.log("Login token", res.data);
             console.log(res.data);
@@ -61,7 +63,11 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", {}, { withCredentials: true })
+          .post(
+            "https://nex-hire-server.vercel.app/logout",
+            {},
+            { withCredentials: true }
+          )
           .then((res) => {
             // console.log("Logout", res.data);
             console.log(res.data);

@@ -8,7 +8,7 @@ const HotJobs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/hotJobs")
+      .get("https://nex-hire-server.vercel.app/hotJobs")
       .then((data) => setJobs(data.data));
   }, []);
 

@@ -12,7 +12,7 @@ const NewJobApply = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allJobs")
+      .get("https://nex-hire-server.vercel.app/allJobs")
       .then((response) => setJobs(response.data));
   }, []);
 
@@ -39,7 +39,10 @@ const NewJobApply = () => {
     };
 
     axios
-      .post("http://localhost:5000/job_applications", newJobApplication)
+      .post(
+        "https://nex-hire-server.vercel.app/job_applications",
+        newJobApplication
+      )
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Application Submitted Successfully", {
