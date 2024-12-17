@@ -67,6 +67,11 @@ const AllJobs = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+  const handlNextPage = () => {
+    if (currentPage < pages.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div className="mt-16 mb-72">
@@ -244,7 +249,9 @@ const AllJobs = () => {
             {page}
           </button>
         ))}
-        <button className="join-item btn btn-outline">Next</button>
+        <button onClick={handlNextPage} className="join-item btn btn-outline">
+          Next
+        </button>
 
         <select
           value={itemsPerPage}
