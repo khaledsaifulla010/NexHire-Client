@@ -15,9 +15,25 @@ const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
   const [showCount, setShowCount] = useState("All");
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   // const totalJobsCount = useLoaderData()
   const { count } = useLoaderData();
-  console.log(count);
+
+  // For Pagination //
+
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+
+  // System 1
+  // const pages = [];
+  // for (let i = 0; i < numberOfPages; i++) {
+  //   pages.push(i);
+  // }
+
+  // Best Option
+
+  const pages = [...Array(numberOfPages).keys()];
+
+  console.log(pages);
 
   useEffect(() => {
     axios
@@ -38,6 +54,12 @@ const AllJobs = () => {
     setShowCount(value === "All" ? "All" : parseInt(value));
   };
   const displayedJobs = showCount === "All" ? jobs : jobs.slice(0, showCount);
+
+  const handleItemsPerPage = (e) => {
+    const val = parseInt(e.target.value);
+    setItemsPerPage(val);
+    console.log(val);
+  };
 
   return (
     <div className="mt-16 mb-72">
@@ -191,6 +213,27 @@ const AllJobs = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Pagination */}
+
+      <div className="mt-24 join gap-x-4 ml-[800px]">
+        {pages.map((page) => (
+          <button key={page} className="border-2 px-4 py-2">
+            {page}
+          </button>
+        ))}
+
+        <select
+          value={itemsPerPage}
+          onChange={handleItemsPerPage}
+          name=""
+          id=""
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
       </div>
     </div>
   );
