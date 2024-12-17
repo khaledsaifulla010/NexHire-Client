@@ -15,7 +15,8 @@ const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
   const [showCount, setShowCount] = useState("All");
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(0);
   // const totalJobsCount = useLoaderData()
   const { count } = useLoaderData();
 
@@ -58,7 +59,7 @@ const AllJobs = () => {
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
     setItemsPerPage(val);
-    console.log(val);
+    setCurrentPage(0);
   };
 
   return (
@@ -219,7 +220,15 @@ const AllJobs = () => {
 
       <div className="mt-24 join gap-x-4 ml-[800px]">
         {pages.map((page) => (
-          <button key={page} className="border-2 px-4 py-2">
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`border-2 px-4 py-2 ${
+              currentPage === page
+                ? "bg-blue-500 text-white"
+                : "bg-white text-black"
+            }`}
+          >
             {page}
           </button>
         ))}
@@ -227,8 +236,7 @@ const AllJobs = () => {
         <select
           value={itemsPerPage}
           onChange={handleItemsPerPage}
-          name=""
-          id=""
+          className="border-2 px-2 py-1"
         >
           <option value="5">5</option>
           <option value="10">10</option>
