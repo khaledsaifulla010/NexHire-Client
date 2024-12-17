@@ -9,11 +9,15 @@ import { FaSearch } from "react-icons/fa";
 import Location from "../../components/Location/Location";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaThList } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
 
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
   const [showCount, setShowCount] = useState("All");
+  // const totalJobsCount = useLoaderData()
+  const { count } = useLoaderData();
+  console.log(count);
 
   useEffect(() => {
     axios
