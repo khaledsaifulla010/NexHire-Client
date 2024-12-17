@@ -62,6 +62,12 @@ const AllJobs = () => {
     setCurrentPage(0);
   };
 
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <div className="mt-16 mb-72">
       <div className="w-full h-[400px] border border-purple-100 bg-purple-50 rounded-xl">
@@ -219,6 +225,12 @@ const AllJobs = () => {
       {/* Pagination */}
 
       <div className="mt-24 join gap-x-4 ml-[800px]">
+        <button
+          onClick={handlePreviousPage}
+          className="join-item btn btn-outline"
+        >
+          Previous
+        </button>
         {pages.map((page) => (
           <button
             key={page}
@@ -232,6 +244,7 @@ const AllJobs = () => {
             {page}
           </button>
         ))}
+        <button className="join-item btn btn-outline">Next</button>
 
         <select
           value={itemsPerPage}
